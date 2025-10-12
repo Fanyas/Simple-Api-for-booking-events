@@ -9,7 +9,7 @@ yarn install
 ```
 
 2. Настроить окружение:
-- Скопируйте `.env`:
+- Создайте `.env`:
 ```env
 DATABASE_URL="file:./dev.db"
 PORT=3000
