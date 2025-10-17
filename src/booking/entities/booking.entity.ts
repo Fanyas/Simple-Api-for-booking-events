@@ -15,4 +15,10 @@ export class Booking {
     })
     @IsString()
     user_id: string;
+
+    @ApiProperty({
+        example: 1
+    })
+    @IsInt()
+    booking_count: number;
 }

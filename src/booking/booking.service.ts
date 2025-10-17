@@ -26,7 +26,8 @@ export class BookingService {
             const booking = await this.prisma.booking.create({
                 data: {
                     event_id: createBookingDTO.event_id,
-                    user_id: createBookingDTO.user_id
+                    user_id: createBookingDTO.user_id,
+                    booking_count: createBookingDTO.booking_count,
                 }
             });
 
@@ -58,5 +59,11 @@ export class BookingService {
         catch (error) {
             throw new Error(`Bookings find error: ${error}`);
         }
+    }
+
+    async findTop10() {
+        const booking = await this.prisma.booking.findMany();
+        const result = booking.sort((a, b) => b.booking_count - a.booking_count);
+        return result.slice(0, 10);
     }
 }

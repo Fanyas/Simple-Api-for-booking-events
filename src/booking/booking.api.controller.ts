@@ -21,4 +21,10 @@ export class BookingApiController {
     async findAll() {
         return await this.bookingService.findAll();
     }
+
+    @Get('top10')
+    async findTop10() {
+        return await this.bookingService.findTop10();
+    }
+    
 }

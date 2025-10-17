@@ -26,6 +26,7 @@ model Booking {
   event      Event    @relation(fields: [event_id], references: [id])
   user_id    String
   created_at DateTime @default(now())
+  booking_count Int @default(0)
 
   @@unique([event_id, user_id])
 }
